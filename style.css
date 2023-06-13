@@ -1,33 +1,95 @@
-import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,700;1,300;1,600&display=swap');
 
 body {
     font-family: 'Nunito Sans', sans-serif;
-    background-image: url("./background.png");
+    background-image: url("/images/background.jpg");
     padding: 70px 0;
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+
+b {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+}
+
+i {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: italic;
 }
 
 h3 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
+
+
+.content ul{
+    list-style-position: inside;
+    margin-top: 5px;
+    list-style-type: disc;
+    color: black;
+}
+
+.content li{
+    margin-bottom: 10px; /* Задаем отступ между пунктами списка */
+    line-height: 25px; /* Задаем отступ между строками одного пункта списка */
+}
 .container {
     width: 800px;
-    min-height: 900px;
+    min-height: 90vh;
     border: 10px solid white; /* Параметры границы */
     margin: 0 auto;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
     display: flex;
-    background-color: wheat;
+    height: 200px;
+}
+
+.header-left {
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: 100%;
+    margin-right: 10px;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     font-size: 30px;
-    height: 200px;
+    flex-direction: column;
+    padding-left: 30px;
+    background: url("/images/header-image.jpg") no-repeat center center / cover;
+    color: white
+    
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+}
+
+.header-left::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+}
+
+.header-right {
+    display: flex;
+    width: 20%;
+    height: 100%;
+    background: url("/images/photo.png") no-repeat center center / cover;
 }
 
 .nav ul {
@@ -36,7 +98,12 @@ h3 {
     margin: 10px 0; /* Обступы до и после меню */
 }
 
+.nav li {
+    flex: 1;
+}
+
 .nav li a {
+    
     padding: 20px;
     display: flex;
     text-decoration: none;
@@ -46,20 +113,105 @@ h3 {
     transition: background 1s ease;
 }
 
+.nav li:last-child a {
+    border-right: none;
+}
+
 .nav li a:hover{
     background-color: rgb(200, 200, 200);
 }
 
 .content {
-    background-color: green; 
-    height: 200px;
+    background-color: rgb(230, 230, 230); 
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
+.content p {
+    line-height: 25px;
+}
+
+.image-certs {
+    margin-top: 10px;
+    max-width: 90%; /* Максимальная ширина блока */
+    width: 100%; /* Начальная ширина блока */
+    height: auto; /* Автоматическая высота блока, основанная на содержимом */
+}
+
+.image-certs img {
+    width: 100%; /* Растягивание или сжатие картинки до 100% ширины блока */
+    height: 100%; /* Растягивание или сжатие картинки до 100% высоты блока */
+    object-fit: contain; /* Масштабирование картинки, чтобы она полностью помещалась в блок */
+}
+
 .footer {
     background-color: gray; 
-    height: 200px;
     display: flex;
+    margin-top: auto;
+    background-color: #24262b;
+    padding: 10px 0;
+}
+
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 25px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+
+
+.footer-col{
+    width: 50%;
+    padding: 0 15px;
+ }
+
+.footer-col ul{
+    color: rgba(255,255,255,0.2)
+}
+
+.footer-col ul li:hover{
+	color: #ffffff;
+}
+
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
 }
