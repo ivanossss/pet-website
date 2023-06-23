@@ -1,0 +1,36 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to server
+        uses: appleboy/scp-action@master
+        with:
+          host: 77.91.69.122
+          username: techuser
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: ./
+          target: /home/techuser/html
+      
+      - name: Copy to var/www/html
+        uses: appleboy/ssh-action@master
+        with:
+          host: 77.91.69.122
+          username: techuser
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            sudo cp -r /home/techuser/html /var/www/
+            rm -r /home/techuser/html
