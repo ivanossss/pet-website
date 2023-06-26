@@ -5,6 +5,7 @@ body {
     background-image: url("/images/background.jpg");
     padding: 70px 0;
     background-repeat: repeat-x;
+    background-size: 100%;
     background-attachment: fixed;
 }
 
@@ -148,7 +149,6 @@ h3 {
 .footer {
     background-color: gray; 
     display: flex;
-    margin-top: auto;
     background-color: #24262b;
     padding: 10px 0;
 }
