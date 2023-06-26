@@ -41,7 +41,6 @@ h3 {
 }
 .container {
     width: 800px;
-    min-height: 90vh;
     border: 10px solid white; /* Параметры границы */
     margin: 0 auto;
     background-color: white;
